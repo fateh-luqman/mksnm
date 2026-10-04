@@ -1,0 +1,10 @@
+{
+  "name": "Kesedaran Sivik Sekolah Rendah",
+  "short_name": "Sivik",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fbfcfe",
+  "theme_color": "#082f49",
+  "lang": "ms",
+  "icons": []
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082f49">
+  <meta name="description" content="Laman interaktif Manual Kesedaran Sivik dan Amalan Nilai Murni untuk murid sekolah rendah.">
+  <title>Kesedaran Sivik | Sekolah Rendah</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./content-data.js"></script>
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#topik">Terus ke senarai topik</a>
+
+  <header class="site-header" id="atas">
+    <div class="container nav-wrap">
+      <a class="brand" href="#atas" aria-label="Halaman utama Kesedaran Sivik">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img"><path d="M24 4c9.9 0 18 8.1 18 18 0 12-10.1 18.5-18 22-7.9-3.5-18-10-18-22C6 12.1 14.1 4 24 4Z" fill="currentColor" opacity=".16"/><path d="M24 11.5c-2.7-3.9-9.3-3.1-10.2 2.5-1.2 7.4 10.2 13.4 10.2 13.4S35.4 21.4 34.2 14c-.9-5.6-7.5-6.4-10.2-2.5Z" fill="currentColor"/><path d="M14 32.5c2.6 2.4 6 4.5 10 6.4 4-1.9 7.4-4 10-6.4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        </span>
+        <span>
+          <strong>Kesedaran Sivik</strong>
+          <small>Sekolah Rendah</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="#nilai">Nilai Teras</a>
+        <a href="#topik">Topik</a>
+        <a href="#manual">Tentang Manual</a>
+      </nav>
+
+      <div class="reading-tools" aria-label="Alat bacaan">
+        <button class="icon-button" id="fontMinus" type="button" aria-label="Kecilkan saiz teks">A−</button>
+        <button class="icon-button" id="fontPlus" type="button" aria-label="Besarkan saiz teks">A+</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Edisi digital interaktif</div>
+          <h1>Nilai murni yang <em>difahami</em>, diamalkan dan dibudayakan.</h1>
+          <p class="hero-lead">Kandungan Manual Kesedaran Sivik dan Amalan Nilai Murni KPM disusun semula menjadi pengalaman bacaan yang ringkas, jelas dan mesra murid sekolah rendah.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#topik">Mula Jelajah</a>
+            <button class="button secondary" id="randomTopic" type="button">Pilih Topik Rawak</button>
+          </div>
+          <div class="hero-stats" aria-label="Ringkasan kandungan">
+            <div><strong>23</strong><span>topik sivik</span></div>
+            <div><strong>4</strong><span>nilai teras</span></div>
+            <div><strong>6</strong><span>bulan pembelajaran</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Ilustrasi empat nilai teras">
+          <div class="visual-shell">
+            <div class="visual-core">
+              <span class="mini-label">Saya pilih nilai</span>
+              <strong id="heroValueLabel">Kasih Sayang</strong>
+              <p id="heroValueText">Peka, prihatin dan menghargai orang serta alam sekitar.</p>
+            </div>
+            <button class="value-bubble bubble-love active" data-hero-value="Kasih Sayang" aria-label="Kasih Sayang"><span>♡</span></button>
+            <button class="value-bubble bubble-respect" data-hero-value="Hormat-Menghormati" aria-label="Hormat-Menghormati"><span>✦</span></button>
+            <button class="value-bubble bubble-responsible" data-hero-value="Bertanggungjawab" aria-label="Bertanggungjawab"><span>✓</span></button>
+            <button class="value-bubble bubble-happy" data-hero-value="Kegembiraan" aria-label="Kegembiraan"><span>☀</span></button>
+          </div>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70c230 95 405-42 656 29 264 75 399-45 784-2v73H0Z" fill="currentColor"/></svg>
+    </section>
+
+    <section class="section value-section" id="nilai">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="kicker">Empat nilai teras</span>
+          <h2>Belajar melalui nilai yang dekat dengan kehidupan murid.</h2>
+          <p>Warna dan ikon digunakan secara konsisten supaya murid cepat mengenal kelompok nilai, sementara setiap kad menerangkan idea, fokus, saranan dan amalan berterusan.</p>
+        </div>
+        <div class="value-grid" id="valueGrid" aria-label="Empat nilai teras"></div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" aria-labelledby="timelineTitle">
+      <div class="container">
+        <div class="section-heading compact reveal">
+          <span class="kicker">Peta pembelajaran</span>
+          <h2 id="timelineTitle">Jelajah mengikut bulan</h2>
+        </div>
+        <div class="month-timeline" id="monthTimeline"></div>
+      </div>
+    </section>
+
+    <section class="section topics-section" id="topik">
+      <div class="container">
+        <div class="topics-head reveal">
+          <div class="section-heading compact">
+            <span class="kicker">Perpustakaan topik</span>
+            <h2>23 topik, satu ruang bacaan.</h2>
+            <p id="resultSummary" aria-live="polite">Memaparkan semua topik.</p>
+          </div>
+          <div class="progress-card" aria-label="Kemajuan bacaan">
+            <div class="progress-ring" id="progressRing" aria-hidden="true"><span id="progressNumber">0%</span></div>
+            <div><strong>Kemajuan Saya</strong><p><span id="completedCount">0</span> daripada 23 topik selesai</p></div>
+          </div>
+        </div>
+
+        <div class="filter-panel reveal" aria-label="Tapisan topik">
+          <label class="search-box">
+            <span class="sr-only">Cari topik</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="searchInput" type="search" placeholder="Cari topik, idea atau saranan…" autocomplete="off">
+          </label>
+          <label>
+            <span class="sr-only">Tapis mengikut nilai</span>
+            <select id="valueFilter" aria-label="Tapis mengikut nilai">
+              <option value="all">Semua nilai</option>
+              <option value="Kasih Sayang">Kasih Sayang</option>
+              <option value="Hormat-Menghormati">Hormat-Menghormati</option>
+              <option value="Bertanggungjawab">Bertanggungjawab</option>
+              <option value="Kegembiraan">Kegembiraan</option>
+            </select>
+          </label>
+          <label>
+            <span class="sr-only">Tapis mengikut bulan</span>
+            <select id="monthFilter" aria-label="Tapis mengikut bulan">
+              <option value="all">Semua bulan</option>
+              <option>Jun</option><option>Julai</option><option>Ogos</option><option>September</option><option>Oktober</option><option>November</option>
+            </select>
+          </label>
+          <button class="button reset-button" id="resetFilters" type="button">Set Semula</button>
+        </div>
+
+        <div class="topic-grid" id="topicGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>Tiada topik ditemui</h3>
+          <p>Cuba kata kunci atau tapisan lain.</p>
+          <button class="button secondary" id="emptyReset" type="button">Paparkan semua topik</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section manual-section" id="manual">
+      <div class="container manual-grid">
+        <div class="manual-intro reveal">
+          <span class="kicker">Tentang manual</span>
+          <h2>Asas pendidikan yang membina insan seimbang.</h2>
+          <p>Manual ini menempatkan nilai manusiawi sebagai sebahagian penting daripada pembentukan murid, bersama perkembangan intelek, rohani, emosi dan jasmani.</p>
+          <div class="source-pill">Kementerian Pendidikan Malaysia · Cetakan Pertama 2018</div>
+        </div>
+
+        <div class="manual-content reveal">
+          <details open>
+            <summary>Falsafah Pendidikan Kebangsaan</summary>
+            <p id="fpkText"></p>
+          </details>
+          <details>
+            <summary>Visi dan Misi KPM</summary>
+            <div class="two-col-copy">
+              <div><span>Visi</span><p id="visionText"></p></div>
+              <div><span>Misi</span><p id="missionText"></p></div>
+            </div>
+          </details>
+          <details>
+            <summary>Latar belakang manual</summary>
+            <ul id="backgroundList"></ul>
+          </details>
+          <details>
+            <summary>Penghargaan dan panel penulis</summary>
+            <div id="creditsBlock"></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section teacher-note-section">
+      <div class="container teacher-note reveal">
+        <div class="teacher-note-icon" aria-hidden="true">i</div>
+        <div>
+          <span class="kicker">Nota penggunaan</span>
+          <h2>Kandungan sumber dikekalkan, pengalaman bacaan diperbaharui.</h2>
+          <p id="sourceNote"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Kesedaran Sivik · Sekolah Rendah</strong>
+        <p>Laman pembelajaran interaktif berasaskan manual Kementerian Pendidikan Malaysia.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#nilai">Nilai Teras</a>
+        <a href="#topik">Topik</a>
+        <a href="#manual">Tentang Manual</a>
+      </div>
+      <p class="footer-small">Reka bentuk digital ini menyusun semula kandungan untuk tujuan pembelajaran. Hak cipta kandungan asal adalah tertakluk kepada penerbit asal.</p>
+    </div>
+  </footer>
+
+  <dialog class="topic-dialog" id="topicDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialogClose" type="button" aria-label="Tutup">×</button>
+      <div id="dialogContent"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
