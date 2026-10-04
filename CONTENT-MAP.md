@@ -2,6 +2,8 @@
 
 Dokumen ini menyusun semula kandungan manual kepada struktur **Aspek Penyampaian → Idea → Fokus → Saranan → Amalan Berterusan → Info**.
 
+> **Versi web 2.0:** Pemetaan kandungan di bawah tidak diubah oleh penambahan logo sekolah, mod terang/gelap, menu mudah alih atau navigasi topik. Penambahbaikan tersebut hanya melibatkan pengalaman pengguna dan identiti laman.
+
 ## Jun
 
 ### Kasih Sayang: Penjimatan Sumber

@@ -1,13 +1,33 @@
 <!doctype html>
-<html lang="ms">
+<html lang="ms" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082f49">
-  <meta name="description" content="Laman interaktif Manual Kesedaran Sivik dan Amalan Nilai Murni untuk murid sekolah rendah.">
-  <title>Kesedaran Sivik | Sekolah Rendah</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#082f49" id="themeColorMeta">
+  <meta name="description" content="Laman interaktif Kesedaran Sivik dan Amalan Nilai Murni untuk murid Sekolah Kebangsaan Ara Rendang.">
+  <meta property="og:title" content="Kesedaran Sivik | SK Ara Rendang">
+  <meta property="og:description" content="23 topik sivik, empat nilai teras dan pengalaman bacaan interaktif untuk murid sekolah rendah.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mksnm.vercel.app/">
+  <meta property="og:image" content="https://mksnm.vercel.app/assets/logo-sk-ara-rendang.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://mksnm.vercel.app/">
+  <title>Kesedaran Sivik | SK Ara Rendang</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/logo-sk-ara-rendang.png">
   <link rel="manifest" href="./manifest.webmanifest">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('civic-theme');
+        const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch {
+        document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./content-data.js"></script>
   <script defer src="./script.js"></script>
@@ -17,13 +37,11 @@
 
   <header class="site-header" id="atas">
     <div class="container nav-wrap">
-      <a class="brand" href="#atas" aria-label="Halaman utama Kesedaran Sivik">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48" role="img"><path d="M24 4c9.9 0 18 8.1 18 18 0 12-10.1 18.5-18 22-7.9-3.5-18-10-18-22C6 12.1 14.1 4 24 4Z" fill="currentColor" opacity=".16"/><path d="M24 11.5c-2.7-3.9-9.3-3.1-10.2 2.5-1.2 7.4 10.2 13.4 10.2 13.4S35.4 21.4 34.2 14c-.9-5.6-7.5-6.4-10.2-2.5Z" fill="currentColor"/><path d="M14 32.5c2.6 2.4 6 4.5 10 6.4 4-1.9 7.4-4 10-6.4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-        </span>
-        <span>
+      <a class="brand" href="#atas" aria-label="Halaman utama Kesedaran Sivik SK Ara Rendang">
+        <img class="brand-logo" src="./assets/logo-sk-ara-rendang.png" alt="" width="52" height="54">
+        <span class="brand-copy">
           <strong>Kesedaran Sivik</strong>
-          <small>Sekolah Rendah</small>
+          <small>SK Ara Rendang</small>
         </span>
       </a>
 
@@ -33,34 +51,53 @@
         <a href="#manual">Tentang Manual</a>
       </nav>
 
-      <div class="reading-tools" aria-label="Alat bacaan">
-        <button class="icon-button" id="fontMinus" type="button" aria-label="Kecilkan saiz teks">A−</button>
-        <button class="icon-button" id="fontPlus" type="button" aria-label="Besarkan saiz teks">A+</button>
+      <div class="reading-tools" aria-label="Alat paparan dan bacaan">
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Aktifkan mod gelap" title="Tukar tema terang atau gelap">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.3 8.3 0 0 1 8.8 3.8 8.7 8.7 0 1 0 20.2 15.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-button font-button" id="fontMinus" type="button" aria-label="Kecilkan saiz teks" title="Kecilkan teks">A−</button>
+        <button class="icon-button font-button" id="fontPlus" type="button" aria-label="Besarkan saiz teks" title="Besarkan teks">A+</button>
+        <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
       </div>
     </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigasi mudah alih" hidden>
+      <div class="container mobile-nav-inner">
+        <a href="#nilai">Nilai Teras</a>
+        <a href="#topik">Topik</a>
+        <a href="#manual">Tentang Manual</a>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
       <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
+          <div class="school-badge">
+            <img src="./assets/logo-sk-ara-rendang.png" alt="Logo Sekolah Kebangsaan Ara Rendang" width="58" height="60">
+            <span><small>Portal pembelajaran</small><strong>SK Ara Rendang</strong></span>
+          </div>
           <div class="eyebrow"><span></span> Edisi digital interaktif</div>
-          <h1>Nilai murni yang <em>difahami</em>, diamalkan dan dibudayakan.</h1>
+          <h1 id="heroTitle">Nilai murni yang <em>difahami</em>, diamalkan dan dibudayakan.</h1>
           <p class="hero-lead">Kandungan Manual Kesedaran Sivik dan Amalan Nilai Murni KPM disusun semula menjadi pengalaman bacaan yang ringkas, jelas dan mesra murid sekolah rendah.</p>
           <div class="hero-actions">
             <a class="button primary" href="#topik">Mula Jelajah</a>
             <button class="button secondary" id="randomTopic" type="button">Pilih Topik Rawak</button>
           </div>
           <div class="hero-stats" aria-label="Ringkasan kandungan">
-            <div><strong>23</strong><span>topik sivik</span></div>
-            <div><strong>4</strong><span>nilai teras</span></div>
-            <div><strong>6</strong><span>bulan pembelajaran</span></div>
+            <div><strong id="topicCountStat">23</strong><span>topik sivik</span></div>
+            <div><strong id="valueCountStat">4</strong><span>nilai teras</span></div>
+            <div><strong id="monthCountStat">6</strong><span>bulan pembelajaran</span></div>
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Ilustrasi empat nilai teras">
+        <div class="hero-visual reveal" aria-label="Pilihan empat nilai teras">
           <div class="visual-shell">
             <div class="visual-core">
               <span class="mini-label">Saya pilih nilai</span>
@@ -82,7 +119,7 @@
         <div class="section-heading reveal">
           <span class="kicker">Empat nilai teras</span>
           <h2>Belajar melalui nilai yang dekat dengan kehidupan murid.</h2>
-          <p>Warna dan ikon digunakan secara konsisten supaya murid cepat mengenal kelompok nilai, sementara setiap kad menerangkan idea, fokus, saranan dan amalan berterusan.</p>
+          <p>Warna dan ikon digunakan secara konsisten supaya murid cepat mengenal kelompok nilai, sementara setiap kad membawa mereka terus ke topik yang berkaitan.</p>
         </div>
         <div class="value-grid" id="valueGrid" aria-label="Empat nilai teras"></div>
       </div>
@@ -103,12 +140,12 @@
         <div class="topics-head reveal">
           <div class="section-heading compact">
             <span class="kicker">Perpustakaan topik</span>
-            <h2>23 topik, satu ruang bacaan.</h2>
+            <h2><span id="topicHeadingCount">23</span> topik, satu ruang bacaan.</h2>
             <p id="resultSummary" aria-live="polite">Memaparkan semua topik.</p>
           </div>
           <div class="progress-card" aria-label="Kemajuan bacaan">
             <div class="progress-ring" id="progressRing" aria-hidden="true"><span id="progressNumber">0%</span></div>
-            <div><strong>Kemajuan Saya</strong><p><span id="completedCount">0</span> daripada 23 topik selesai</p></div>
+            <div><strong>Kemajuan Saya</strong><p><span id="completedCount">0</span> daripada <span id="totalCount">23</span> topik selesai</p></div>
           </div>
         </div>
 
@@ -195,21 +232,22 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <strong>Kesedaran Sivik · Sekolah Rendah</strong>
-        <p>Laman pembelajaran interaktif berasaskan manual Kementerian Pendidikan Malaysia.</p>
+      <div class="footer-brand">
+        <img src="./assets/logo-sk-ara-rendang.png" alt="" width="62" height="64">
+        <div><strong>Kesedaran Sivik · SK Ara Rendang</strong><p>Laman pembelajaran interaktif berasaskan manual Kementerian Pendidikan Malaysia.</p></div>
       </div>
       <div class="footer-links">
         <a href="#nilai">Nilai Teras</a>
         <a href="#topik">Topik</a>
         <a href="#manual">Tentang Manual</a>
+        <a href="#atas">Kembali ke atas</a>
       </div>
-      <p class="footer-small">Reka bentuk digital ini menyusun semula kandungan untuk tujuan pembelajaran. Hak cipta kandungan asal adalah tertakluk kepada penerbit asal.</p>
+      <p class="footer-small">Reka bentuk digital ini menyusun semula kandungan untuk tujuan pembelajaran. Hak cipta kandungan asal tertakluk kepada penerbit asal.</p>
     </div>
   </footer>
 
   <dialog class="topic-dialog" id="topicDialog" aria-labelledby="dialogTitle">
-    <div class="dialog-shell">
+    <div class="dialog-shell" id="dialogShell">
       <button class="dialog-close" id="dialogClose" type="button" aria-label="Tutup">×</button>
       <div id="dialogContent"></div>
     </div>
